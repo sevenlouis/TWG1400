@@ -24,17 +24,35 @@ src="https://www.facebook.com/tr?id=1554143305425831&ev=PageView&noscript=1"
 
 <body>
 
-    <h1>Waiting...</h1>
+    <h1>Welcome to TWG!</h1>
 
-</body>
+    <p id="countdown">Redirecting in 5 seconds...</p>
 
-<script>
-    setTimeout(function () {
-        // 使用window.location.href進行網址跳轉
-        window.location.href = "https://www.2549433.com/"; // 將此處的網址替換為你想要的目標網址
-    }, 3000); // 3000毫秒等於3秒s
+    <script>
+        // 初始倒數秒數
+        let countdown = 5;
 
+        // 顯示倒數秒數的元素
+        let countdownElement = document.getElementById('countdown');
 
-</script>
+        // 更新倒數秒數的函數
+        function updateCountdown() {
+            countdown--;
+            countdownElement.textContent = `Redirecting in ${countdown} seconds...`;
+
+            // 如果倒數結束，進行跳轉
+            if (countdown <= 0) {
+                window.location.href = "https://www.2549433.com/"; // 將此處的網址替換為你想要的目標網址
+            }
+        }
+
+        // 使用setInterval每秒更新一次倒數
+        let countdownInterval = setInterval(updateCountdown, 1000);
+
+        // 在5秒後清除Interval，停止更新倒數
+        setTimeout(function() {
+            clearInterval(countdownInterval);
+        }, 5000);
+    </script>
 
 </html>
